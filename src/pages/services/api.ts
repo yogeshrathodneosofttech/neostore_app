@@ -15,11 +15,7 @@ export class ApiData {
 		return this.http.get(url);
 	}
 
-	postLogin(url, data) {
-		return this.http.post(url, data, this.headers).map( res => res.json() );
-	}
-
-	postRegister(url, data) {
+	postRequest(url, data) {
 		return this.http.post(url, data, this.headers).map( res => res.json() );
 	}
 }

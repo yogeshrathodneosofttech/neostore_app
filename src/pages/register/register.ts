@@ -51,19 +51,6 @@ export class Register {
       this.genderValue = 'F';
     }
 
-    let obj = {
-      first_name: 'Kannan',
-      last_name: 'Maravar',
-      email: 'Kannan.Maravar2110@wwindia.com',
-      password: 'Kannan123',
-      confirm_password: 'Kannan123',
-      gender: 'M',
-      phone_no: 77150200100
-    };
-        console.log("obj", obj);
-
-    console.log("this.genderValue", this.genderValue);
-
     if ( this.IAgree == false ) {
       this.toastMessage('Please agree Terms & Conditions!', 3000);
     } else {
@@ -76,30 +63,15 @@ export class Register {
         formData.append("gender", this.genderValue);
         formData.append("phone_no", form.value.phone);
 
-        console.log("formData", formData);
-
-        this.apiService.postRegister(this.registerEndPoint, obj).subscribe((response) => {
-          console.log("response", response);
+        this.apiService.postRequest(this.registerEndPoint, formData).subscribe((response) => {
           if ( response.status === 200 ) {
-            console.log("response.status");
-            this.toastMessage('You have Logged In Successfully!!!', 2000);
-            this.navCtrl.push(Homescreen);
+            this.toastMessage('You have Registered Successfully!!! Please Log In.!!!', 2000);
+            this.navCtrl.pop();
           }
         }, error => {
-          console.log("error");
           this.toastMessage('Registration Failed. Please try again.', 3000);
         });
-
     }
-
-    // var formData = new FormData();
-    // formData.append("first_name", form.value.firstname);
-    // formData.append("last_name", form.value.lastname);
-    // formData.append("email", form.value.email);
-    // formData.append("password", form.value.password);
-    // formData.append("confirm_password", form.value.confirmpassword);
-    // formData.append("gender", this.genderValue);
-    // formData.append("phone_no", form.value.phone);
   }
 
   checkConfirmPassword(form: NgForm) {

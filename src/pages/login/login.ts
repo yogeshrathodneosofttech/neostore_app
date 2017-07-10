@@ -28,14 +28,17 @@ export class Login {
       public navCtrl: NavController) {
   }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad Login');
+  }
+
   loginUser(form: NgForm) {
 
     var formData = new FormData();
     formData.append("email", form.value.username);
     formData.append("password", form.value.password);
-    console.log("formData", formData);
 
-    this.apiService.postLogin(this.loginEndPoint, formData).subscribe((response) => {
+    this.apiService.postRequest(this.loginEndPoint, formData).subscribe((response) => {
       if ( response.status === 200 ) {
         this.toastMessage('You have Logged In Successfully!!!', 2000);
         this.navCtrl.push(Homescreen);
