@@ -1,0 +1,74 @@
+page-register {
+	.form-container form > div label {
+		&.email {
+			left: 11px;
+		}
+
+		&.phone {
+			top: 5px;
+			font-size: 35px;
+		}
+	}
+
+
+
+	.gender {
+		margin-bottom: 20px;
+		font-size: 18px;
+		font-weight: 700;
+		font-family: 'Gotham_Rounded_Book';
+		color: color($colors, secondary);
+
+		i { margin-right: 5px; }
+
+		span.gender { margin-right: 30px; }
+
+		> span { margin-right: 15px; }
+
+		input[type="radio"] {
+			display: none;
+
+			&[checked] + span .radio-circle { background: #fff; }
+		}
+
+		.radio-circle {
+			display: inline-block;
+			width: 14px;
+			height: 14px;
+			border: 2px solid #fff;
+			border-radius: 50%;
+		}
+	}
+
+	.agree-text {
+		text-align: center;
+		margin-bottom: 15px;
+		color: color($colors, secondary);
+
+		a {
+			color: color($colors, secondary);
+		}
+
+		span {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.check-boxes {
+			position: relative;
+			vertical-align: bottom;
+			border: 1px solid #fff;
+			width: 15px;
+			height: 15px;
+
+			.inner-box {
+				position: absolute;
+				top: 2px;
+				left: 2px;
+				right: 2px;
+				bottom: 2px;
+				background: #fff;
+			}
+		}
+	}
+}

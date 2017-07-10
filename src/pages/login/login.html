@@ -1,0 +1,32 @@
+
+<ion-content padding>
+	<div class="logo">
+	<h1 class="logotext">NeoSTORE</h1>
+	</div>
+	<div class="form-container">
+		<form action="" method="POST" #loginForm="ngForm" (ngSubmit)="loginUser(loginForm)">
+			<div class="username">
+				<label class="username"><i class="fa fa-user" aria-hidden="true"></i></label>
+				<input type="text" name="username" placeholder="Username" ngModel required>
+				<p class="error-msg">Username is required.</p>
+			</div>
+			<div class="password">
+				<label class="password"><i class="fa fa-lock" aria-hidden="true"></i></label>
+				<input type="password" name="password" placeholder="Password" ngModel required>
+				<p class="error-msg">Password is required.</p>
+			</div>
+			<div class="login-btn">
+				<input type="submit" name="login" value="login" [disabled]="!loginForm.valid">
+			</div>
+		</form>
+		<div class="forget-password" (click)="forgetPassword()">
+			<a href="javascript:void(0)">Forget Password</a>
+		</div>
+	</div>
+	<div class="no-account clearfix" (click)="register()">
+		<span  text-left>
+			Dont have an account?
+		</span>
+		<div class="plus-icon"><i class="fa fa-plus" aria-hidden="true"></i></div>
+	</div>
+</ion-content>

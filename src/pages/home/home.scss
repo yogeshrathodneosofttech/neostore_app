@@ -1,3 +1,80 @@
-page-home {
+* {
+	box-sizing: border-box;
+}
 
+// .ngrid-settings-button {
+// 	top: 50%;
+
+// }
+
+h1.logotext {
+	color: color($colors, secondary);
+	font-size: 45px;
+	margin-top: 1rem;
+}
+
+ion-content {
+	font-family: 'Gotham_Pro_Bold';
+	background: color($colors, primary);
+
+	&.content-ios {
+		background: color($colors, primary);
+	}
+
+	&.content-md {
+		background: color($colors, primary);
+	}
+}
+
+.scroll-content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding-left: 33px !important;
+	padding-right: 33px !important;
+}
+
+.clearfix::before {
+	content: '';
+	display: block;
+}
+
+.clearfix::after {
+	content: '';
+	clear: both;
+	display: block;
+}
+
+.text-decorate {
+	text-decoration: underline;
+}
+
+.toolbar-background {
+	background: #f00;
+	border: 0;
+}
+
+.toolbar-title {
+	color: color($colors, secondary) !important;
+}
+
+.back-button {
+	.back-button-text { visibility: hidden; }
+
+	.back-button-icon {
+		color: color($colors, secondary);
+	}
+}
+
+.toast-message { text-align: center; }
+
+
+
+page-home {
+	.welcome-msg {
+		font-family: 'Gotham_Pro_Regular';
+		color: color($colors, secondary);
+		font-size: 25px;
+	}
 }

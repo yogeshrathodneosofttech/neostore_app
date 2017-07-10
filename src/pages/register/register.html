@@ -1,0 +1,91 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+	<div class="logo">
+	<h1 class="logotext">NeoSTORE</h1>
+	</div>
+	<div class="form-container">
+		<form action="" method="POST" #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+			<div class="firstname">
+				<label class="firstname"><i class="fa fa-user" aria-hidden="true"></i></label>
+				<input type="text" name="firstname" placeholder="First Name" ngModel required>
+				<p class="error-msg">First Name is required.</p>
+			</div>
+			<div class="lastname">
+				<label class="lastname"><i class="fa fa-user" aria-hidden="true"></i></label>
+				<input type="text" name="lastname" placeholder="Last Name" ngModel required>
+				<p class="error-msg">Last Name is required.</p>
+			</div>
+			<div class="Email">
+				<label class="email"><i class="fa fa-envelope" aria-hidden="true"></i></label>
+				<input
+							type="text"
+							name="email"
+							placeholder="Email"
+							ngModel
+							required
+							email >
+				<p class="error-msg">Email is not Valid.</p>
+			</div>
+			<div class="password">
+				<label class="password"><i class="fa fa-lock" aria-hidden="true"></i></label>
+				<input type="password" name="password" placeholder="Password" ngModel required>
+				<p class="error-msg">Password is required.</p>
+			</div>
+			<div class="confirmpassword">
+				<label class="username"><i class="fa fa-lock" aria-hidden="true"></i></label>
+				<input
+						type="password"
+						name="confirmpassword"
+						placeholder="Confirm Password"
+						ngModel
+						required
+						(blur)="checkConfirmPassword(registerForm)">
+				<p class="error-msg">Confirm Password is required.</p>
+				<p *ngIf="passwordMatch" class="password-error-msg">Password &amp; Confirm Password do not match.</p>
+			</div>
+			<div class="gender">
+				<span class="gender">Gender</span>
+				<input type="radio" name="gender" value="male" checked>
+				<span (click)="gender($event)">
+					<i class="fa fa-circle" aria-hidden="true" *ngIf="maleSelected"></i>
+					<i class="fa fa-circle-o" aria-hidden="true" *ngIf="femaleSelected"></i>
+					Male
+				</span>
+				<input type="radio" name="gender" value="female">
+				<span (click)="gender($event)">
+					<i class="fa fa-circle" aria-hidden="true" *ngIf="femaleSelected"></i>
+					<i class="fa fa-circle-o" aria-hidden="true" *ngIf="maleSelected"></i>
+					Female
+				</span>
+			</div>
+			<div class="phone">
+				<label class="phone"><i class="fa fa-mobile" aria-hidden="true"></i></label>
+				<input
+						type="number"
+						name="phone"
+						placeholder="Phone Number"
+						ngModel
+						required >
+				<p class="error-msg">Phone Number is required.</p>
+			</div>
+			<div class="agree-text clearfix" (click)="iAgree()">
+				<span class="check-boxes">
+					<span class="inner-box" *ngIf="IAgree"></span>
+				</span>
+				<span>
+					 I agree the <a class="text-decorate" href="javascript:void(0)">Terms &amp; Conditions</a>
+				</span>
+			</div>
+			<div class="login-btn">
+				<input type="submit" name="login" value="Register" [disabled]="!registerForm.valid || passwordMatch">
+			</div>
+		</form>
+	</div>
+</ion-content>
