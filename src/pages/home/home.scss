@@ -55,8 +55,19 @@ ion-content {
 	border: 0 !important;
 }
 
+.toolbar-content button {
+	background: #f00;
+
+	ion-icon {
+		font-size: 32px;
+		color: color($colors, secondary);
+	}
+}
+
 .toolbar-title {
 	color: color($colors, secondary) !important;
+	font-size: 28px;
+	font-family: 'Gotham_Pro_Bold';
 }
 
 .back-button {
@@ -68,6 +79,26 @@ ion-content {
 }
 
 .toast-message { text-align: center; }
+
+.swiper-pagination-bullet {
+	width: 10px;
+	height: 10px;
+	background: #2c2b2b;
+	opacity: 1;
+	margin: 0 3px !important;
+}
+
+.swiper-pagination-bullet-active {
+	background: color($colors, primary);
+}
+
+.search {
+	float: right;
+	color: color($colors, secondary);
+	margin-right: 10px;
+	font-size: 20px;
+	margin-top: 6px;
+}
 
 
 

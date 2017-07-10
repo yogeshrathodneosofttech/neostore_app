@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { Login } from '../login/login';
-import { Register } from '../register/register';
-import { Forgetpassword } from '../forgetpassword/forgetpassword';
-import { Resetpassword } from '../resetpassword/resetpassword';
+import { Homescreen } from '../homescreen/homescreen';
+
+import * as Globals from '../globals';
 
 @Component({
   selector: 'page-home',
@@ -16,7 +16,7 @@ export class HomePage {
 
   ngOnInit() {
   	setTimeout( () => {
-  		this.navCtrl.push(Login);
+  		this.navCtrl.push(Homescreen);
   	}, 1000);
   }
 

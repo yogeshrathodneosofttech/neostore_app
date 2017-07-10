@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import * as Globals from '../globals';
+
 /**
  * Generated class for the Homescreen page.
  *
@@ -18,6 +20,7 @@ export class Homescreen {
   }
 
   ionViewDidLoad() {
+  	console.log("Globals loggedInUser", Globals.globals.loggedInUser);
     console.log('ionViewDidLoad Homescreen');
   }
 

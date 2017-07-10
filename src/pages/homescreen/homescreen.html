@@ -1,18 +1,65 @@
-<!--
-  Generated template for the Homescreen page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>NeoSTORE</ion-title>
-  </ion-navbar>
+	<ion-navbar hideBackButton>
+
+		<button >
+			<ion-icon name="menu" ></ion-icon>
+		</button>
+
+		<ion-title>NeoSTORE</ion-title>
+
+		<div class="search">
+			<i class="fa fa-search" aria-hidden="true"></i>
+		</div>
+
+	</ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+	<ion-slides pager>
+		<ion-slide>
+			<img src="assets/images/slide1.jpeg">
+		</ion-slide>
+		<ion-slide>
+			<img src="assets/images/slide2.jpeg">
+		</ion-slide>
+		<ion-slide>
+			<img src="assets/images/slide3.jpeg">
+		</ion-slide>
+		<ion-slide>
+			<img src="assets/images/slide4.jpeg">
+		</ion-slide>
+	</ion-slides>
+
+	<div class="blocks clearfix">
+		<div class="block">
+			<h2>Tables</h2>
+			<div class="icon clearfix">
+				<img src="assets/images/tables.png">
+			</div>
+		</div>
+		<div class="block">
+			<div class="icon clearfix">
+				<img src="assets/images/sofa.png">
+			</div>
+			<h2>Sofas</h2>
+		</div>
+		<div class="block">
+			<h2>Chairs</h2>
+			<div class="icon clearfix">
+				<img src="assets/images/chair.png">
+			</div>
+		</div>
+		<div class="block">
+			<div class="icon clearfix">
+				<img src="assets/images/cupboard.png">
+			</div>
+			<h2>Cupboards</h2>
+		</div>
+	</div>
 
 </ion-content>

@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Forgetpassword } from '../forgetpassword/forgetpassword';
 import { Register } from '../register/register';
 import { Homescreen } from '../homescreen/homescreen';
+import * as Globals from '../globals';
 
 import { ApiData } from '../services/api';
 
@@ -41,6 +42,7 @@ export class Login {
     this.apiService.postRequest(this.loginEndPoint, formData).subscribe((response) => {
       if ( response.status === 200 ) {
         this.toastMessage('You have Logged In Successfully!!!', 2000);
+        Globals.globals.loggedInUser = true;
         this.navCtrl.push(Homescreen);
       }
     }, error => {
