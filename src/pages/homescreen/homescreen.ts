@@ -3,6 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import * as Globals from '../globals';
 
+import { Productlisting } from '../productlisting/productlisting';
+
 /**
  * Generated class for the Homescreen page.
  *
@@ -19,9 +21,8 @@ export class Homescreen {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-  	console.log("Globals loggedInUser", Globals.globals.loggedInUser);
-    console.log('ionViewDidLoad Homescreen');
+  clicked(Tables) {
+    this.navCtrl.push(Productlisting, Tables );
   }
 
 }

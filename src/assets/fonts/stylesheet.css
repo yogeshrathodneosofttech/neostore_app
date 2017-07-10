@@ -71,3 +71,17 @@
 	font-weight: bold;
 	font-style: normal;
 }
+
+@font-face {
+	font-family: 'Gotham_Condensed_Bold';
+	src: url('GothamCondensed-Bold.woff2') format('woff2'),
+		url('GothamCondensed-Bold.woff') format('woff'),
+		url('GothamCondensed-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src: url('./icomoon/icomoon.ttf');
+}

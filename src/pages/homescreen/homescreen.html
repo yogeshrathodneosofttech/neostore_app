@@ -36,25 +36,26 @@
 	</ion-slides>
 
 	<div class="blocks clearfix">
-		<div class="block">
+		<div class="block" (click)="clicked('Tables')">
 			<h2>Tables</h2>
 			<div class="icon clearfix">
+				<!-- <span class="icon-tables"></span> -->
 				<img src="assets/images/tables.png">
 			</div>
 		</div>
-		<div class="block">
+		<div class="block" (click)="clicked('Sofas')">
 			<div class="icon clearfix">
 				<img src="assets/images/sofa.png">
 			</div>
 			<h2>Sofas</h2>
 		</div>
-		<div class="block">
+		<div class="block" (click)="clicked('Chairs')">
 			<h2>Chairs</h2>
 			<div class="icon clearfix">
 				<img src="assets/images/chair.png">
 			</div>
 		</div>
-		<div class="block">
+		<div class="block" (click)="clicked('Cupboards')">
 			<div class="icon clearfix">
 				<img src="assets/images/cupboard.png">
 			</div>

@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RatingModule } from "ngx-rating";
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -13,6 +14,8 @@ import { Register } from '../pages/register/register';
 import { Forgetpassword } from '../pages/forgetpassword/forgetpassword';
 import { Resetpassword } from '../pages/resetpassword/resetpassword';
 import { Homescreen } from '../pages/homescreen/homescreen';
+import { Productlisting } from '../pages/productlisting/productlisting';
+import { Productdetail } from '../pages/productdetail/productdetail';
 
 @NgModule({
   declarations: [
@@ -22,14 +25,17 @@ import { Homescreen } from '../pages/homescreen/homescreen';
     Register,
     Forgetpassword,
     Resetpassword,
-    Homescreen
+    Homescreen,
+    Productlisting,
+    Productdetail
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     ReactiveFormsModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,7 +45,9 @@ import { Homescreen } from '../pages/homescreen/homescreen';
     Register,
     Forgetpassword,
     Resetpassword,
-    Homescreen
+    Homescreen,
+    Productlisting,
+    Productdetail
   ],
   providers: [
     StatusBar,

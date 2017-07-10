@@ -12,7 +12,7 @@ export class ApiData {
   });
 
 	getData(url) {
-		return this.http.get(url);
+		return this.http.get(url).map( res => res.json() );
 	}
 
 	postRequest(url, data) {
