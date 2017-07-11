@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { NavController, ToastController, LoadingController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 
 import { ApiData } from '../services/api';
@@ -18,8 +18,10 @@ import { ApiData } from '../services/api';
 })
 export class Forgetpassword {
   forgetPasswordEndPoint:any = 'http://staging.php-dev.in:8844/trainingapp/api/users/forgot';
+  loading:any;
 
   constructor(
+        public loadingCtrl: LoadingController,
         private apiService: ApiData,
         private toastCtrl: ToastController,
         public navCtrl: NavController) {
@@ -30,19 +32,19 @@ export class Forgetpassword {
   }
 
   forgetPassword(form: NgForm) {
-	  console.log("form Values", form.value);
+    this.loader();
     var formData = new FormData();
     formData.append("email", form.value.email);
 
     this.apiService.postRequest(this.forgetPasswordEndPoint, formData).subscribe((response) => {
-      console.log("response", response);
       if ( response.status === 200 ) {
         this.toastMessage('We have sent a new password to your registered Email Address. Please Login using it.', 3000);
         this.navCtrl.pop();
+        this.loading.dismiss();
       }
     }, error => {
-        console.log("error", error);
        this.toastMessage('Email is wrong. Please try again.', 3000);
+       this.loading.dismiss();
     });
   }
 
@@ -53,6 +55,15 @@ export class Forgetpassword {
       position: 'middle'
     });
     toast.present();
+  }
+
+  loader() {
+    this.loading = this.loadingCtrl.create({
+      content: '',
+      spinner: 'bubbles',
+      cssClass: 'loader'
+    });
+    this.loading.present();
   }
 
 }

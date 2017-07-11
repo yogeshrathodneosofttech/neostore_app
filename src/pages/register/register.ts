@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { NavController, ToastController, LoadingController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 
 import { Homescreen } from '../homescreen/homescreen';
@@ -25,11 +25,13 @@ export class Register {
 	maleSelected:any = true;
 	femaleSelected:any = false;
   passwordMatch: any = false;
+  loading:any;
 
   constructor(
-            private apiService: ApiData,
-            private toastCtrl: ToastController,
-            public navCtrl: NavController) {}
+          public loadingCtrl: LoadingController,
+          private apiService: ApiData,
+          private toastCtrl: ToastController,
+          public navCtrl: NavController) {}
 
   gender(event) {
     this.genderValue = event.target.innerText;
@@ -54,6 +56,7 @@ export class Register {
     if ( this.IAgree == false ) {
       this.toastMessage('Please agree Terms & Conditions!', 3000);
     } else {
+        this.loader();
         var formData = new FormData();
         formData.append("first_name", form.value.firstname);
         formData.append("last_name", form.value.lastname);
@@ -67,9 +70,11 @@ export class Register {
           if ( response.status === 200 ) {
             this.toastMessage('You have Registered Successfully!!! Please Log In.!!!', 2000);
             this.navCtrl.pop();
+            this.loading.dismiss();
           }
         }, error => {
           this.toastMessage('Registration Failed. Please try again.', 3000);
+          this.loading.dismiss();
         });
     }
   }
@@ -97,6 +102,15 @@ export class Register {
       position: 'middle'
     });
     toast.present();
+  }
+
+  loader() {
+    this.loading = this.loadingCtrl.create({
+      content: '',
+      spinner: 'bubbles',
+      cssClass: 'loader'
+    });
+    this.loading.present();
   }
 
 }

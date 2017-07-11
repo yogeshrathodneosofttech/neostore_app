@@ -1,3 +1,4 @@
 export var globals = {
-	loggedInUser: false
+	loggedInUser: false,
+	userAccessToken: ''
 }

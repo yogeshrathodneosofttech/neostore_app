@@ -17,12 +17,13 @@
 
 
 <ion-content padding>
+
 	<div class="product-intro clearfix">
 		<h2>
 			{{ this.productDetails.name }}
 		</h2>
 		<h3>
-			Category - {{ this.productDetails.product_category_id }}
+			Category - {{ productCategory }}
 		</h3>
 		<h4>
 			{{ this.productDetails.producer }}
@@ -34,6 +35,75 @@
 				[readonly]="true" >
 			</rating>
 		</h4>
-
 	</div>
+
+	<div class="product-detail clearfix">
+		<p class="price">Rs. {{ productDetails.cost.toLocaleString() }}</p>
+		<span class="share-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></span>
+		<div class="product-img">
+			<img src="{{ activeImage }}">
+		</div>
+		<div class="image-slider">
+			<div class="image" *ngFor="let item of productImages; let i = index;" [class.active]="i == 0" (click)="replaceMainImage($event, item )">
+				<img src="{{ item }}">
+			</div>
+		</div>
+		<div class="description">
+			<h5>description</h5>
+			<p>
+				{{ productDetails.description }}
+			</p>
+		</div>
+	</div>
+
+	<div class="buttons-container clearfix">
+		<button class="buy-button" (click)="buyPopUp = true">Buy Now</button>
+		<button class="rate-button" (click)="ratingPopUp = true">Rate</button>
+	</div>
+
+	<div class="buy-popup" *ngIf="buyPopUp" (click)="buyPopUp = false">
+		<div class="content" (click)="hidePopUp($event)">
+			<h2>
+				{{ productDetails.name }}
+			</h2>
+			<div class="product-img">
+				<img src="{{ activeImage }}">
+			</div>
+			<div class="quantity">
+				<div>
+					<label>
+						Enter Qty
+					</label>
+				</div>
+				<input type="number" name="quantity" value="" autofocus="autofocus" #productQuantity>
+			</div>
+			<div class="buy-button" (click)="buyItem(productQuantity.value)">
+				<button class="buy-button">Submit</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="rating-popup" *ngIf="ratingPopUp" (click)="ratingPopUp = false">
+		<div class="content" (click)="hidePopUp($event)">
+			<h2>
+				{{ productDetails.name }}
+			</h2>
+			<div class="product-img">
+				<img src="{{ activeImage }}">
+			</div>
+			<div class="ratings">
+				<rating
+					[(ngModel)]="starsCounts"
+					[float]="true"
+					fullIcon="★"
+					emptyIcon="★" >
+				</rating>
+			</div>
+			<div class="rate-button" (click)="postRating()">
+				<button class="buy-button">Rate Now</button>
+			</div>
+		</div>
+	</div>
+
+
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 
 import * as _ from 'lodash';
 
@@ -25,8 +25,10 @@ export class Productlisting {
   productsEndPoint:any = '';
   products:any = [];
   starsCounts: number[] = [];
+  loading:any;
 
   constructor(
+        public loadingCtrl: LoadingController,
         private apiService: ApiData,
   			public navCtrl: NavController,
   			public navParams: NavParams) {
@@ -56,6 +58,7 @@ export class Productlisting {
 
 
   ionViewDidLoad() {
+    this.loader();
     this.selectedItem = this.navParams.data;
     this.products = [];
     this.starsCounts = [];
@@ -65,13 +68,23 @@ export class Productlisting {
         this.products.push(data);
         this.starsCounts.push(data.rating);
       });
+      this.loading.dismiss();
     }, error => {
-        console.log("error", error);
+        this.loading.dismiss();
     });
   }
 
   productDetail(item) {
     this.navCtrl.push(Productdetail, item);
+  }
+
+  loader() {
+    this.loading = this.loadingCtrl.create({
+      content: '',
+      spinner: 'bubbles',
+      cssClass: 'loader'
+    });
+    this.loading.present();
   }
 
 }

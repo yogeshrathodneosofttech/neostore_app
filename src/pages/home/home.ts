@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { Login } from '../login/login';
 import { Homescreen } from '../homescreen/homescreen';
+import { Productlisting } from '../productlisting/productlisting';
 
 import * as Globals from '../globals';
 
@@ -16,7 +17,7 @@ export class HomePage {
 
   ngOnInit() {
   	setTimeout( () => {
-  		this.navCtrl.push(Homescreen);
+  		this.navCtrl.push(Login);
   	}, 1000);
   }
 

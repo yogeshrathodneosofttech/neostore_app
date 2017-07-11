@@ -105,6 +105,16 @@ ion-content {
 	font-size: 150px;
 }
 
+.loader .loading-wrapper {
+	background: transparent;
+	position: absolute;
+	bottom: 75px;
+
+	.spinner-bubbles circle {
+		fill: #fff;
+	}
+}
+
 // .icon-tables:before {
   // content: "\e902";
    // fontFamily: "icomoon",
