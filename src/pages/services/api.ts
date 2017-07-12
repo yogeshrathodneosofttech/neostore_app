@@ -13,8 +13,6 @@ export class ApiData {
     'Content-Type': 'application/json'
   });
 
-  // this.headers.append('access_token', Globals.globals.userAccessToken );
-
 	getData(url) {
 		return this.http.get(url).map( res => res.json() );
 	}
@@ -23,7 +21,11 @@ export class ApiData {
 		return this.http.post(url, data, this.headers).map( res => res.json() );
 	}
 
-	addToCart(url, data, headers) {
+	postRequestWithHeaders(url, data, headers) {
 		return this.http.post(url, data, headers).map( res => res.json() );
+	}
+
+	getRequestWithHeaders(url, headers) {
+		return this.http.get(url, headers).map( res => res.json() );
 	}
 }

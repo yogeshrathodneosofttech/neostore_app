@@ -1,0 +1,49 @@
+page-myaccount {
+	.search {
+		margin-top: 0;
+	}
+
+	.scroll-content {
+		display: block;
+	}
+}
+
+.user-info {
+	width: 100%;
+
+	label.dob,
+	label.email {
+		left: 10px;
+	}
+
+	[type="submit"] {
+		font-size: 21px;
+	}
+
+	.image {
+		width: 50%;
+		margin: 0 auto 15px;
+		overflow: hidden;
+
+		img {
+			border-radius: 50%;
+		}
+	}
+
+	.reset-password-button {
+		position: fixed;
+		color: #333;
+		background: #fff;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		font-size: 18px;
+    font-weight: 700;
+    font-family: 'Gotham_Rounded_Book';
+    text-transform: uppercase;
+	}
+}
+

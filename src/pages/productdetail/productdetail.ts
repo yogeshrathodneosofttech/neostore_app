@@ -112,7 +112,7 @@ export class Productdetail {
     var headers = new Headers();
     headers.append( 'access_token', Globals.globals.userAccessToken );
 
-    this.apiService.addToCart(addToCartEndPoint, formData, { headers }).subscribe((response) => {
+    this.apiService.postRequestWithHeaders(addToCartEndPoint, formData, { headers }).subscribe((response) => {
         console.log("response", response);
       if ( response.status === 200 ) {
         this.toastMessage('Product added to cart Successfully!!!', 2000);

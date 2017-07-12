@@ -1,0 +1,73 @@
+<!--
+  Generated template for the Myaccount page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>My Account</ion-title>
+	  <div class="search">
+	  	<i class="fa fa-search" aria-hidden="true"></i>
+	  </div>
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<div class="user-info">
+		<div class="image" *ngIf="usersInformation">
+			<img src="{{ usersInformation.profile_pic }}" *ngIf="usersInformation.profile_pic != null ">
+			<img src="assets/images/profile-pic-placeholder.jpg" *ngIf="usersInformation.profile_pic == null || usersInformation.profile_pic.trim() == '' && usersInformation.gender.trim() == 'Male'  ">
+			<img src="assets/images/female-profile-placeholder.jpg" *ngIf="usersInformation.profile_pic == null || usersInformation.profile_pic.trim() == '' && usersInformation.gender.trim() == 'Female'  ">
+		</div>
+		<div class="form-container">
+			<form *ngIf="usersInformation">
+				<div class="firstname">
+					<label class="firstname"><i class="fa fa-user" aria-hidden="true"></i></label>
+					<input type="text" name="firstname" value="{{ usersInformation.first_name }}" readonly="readonly" >
+				</div>
+				<div class="lastname">
+					<label class="lastname"><i class="fa fa-user" aria-hidden="true"></i></label>
+					<input type="text" name="lastname" value="{{ usersInformation.last_name }}" readonly="readonly" >
+				</div>
+				<div class="Email">
+					<label class="email"><i class="fa fa-envelope" aria-hidden="true"></i></label>
+					<input
+						type="text"
+						name="email"
+						value="{{ usersInformation.email }}" readonly="readonly" >
+				</div>
+				<div class="phone">
+					<label class="phone"><i class="fa fa-mobile" aria-hidden="true"></i></label>
+					<input
+					type="number"
+					name="phone"
+					value="{{ usersInformation.phone_no }}" readonly="readonly" >
+				</div>
+				<div class="dob">
+					<label class="dob"><i class="fa fa-birthday-cake" aria-hidden="true"></i></label>
+					<input *ngIf="usersInformation.dob != null"
+					type="text"
+					name="dob"
+				 	value="{{ usersInformation.dob }}" readonly="readonly" >
+				 	<input *ngIf="usersInformation.dob == null"
+						type="text"
+						name="dob"
+					 	value="Date of Birth" readonly="readonly" >
+				</div>
+				<div class="login-btn">
+					<input type="submit" name="editprofile" value="Edit Profile" (click)="editProfile()">
+				</div>
+			</form>
+			<div class="reset-password-button">
+				<span class="reset-button">Reset Password</span>
+			</div>
+		</div>
+	</div>
+
+</ion-content>

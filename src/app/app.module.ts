@@ -16,6 +16,8 @@ import { Resetpassword } from '../pages/resetpassword/resetpassword';
 import { Homescreen } from '../pages/homescreen/homescreen';
 import { Productlisting } from '../pages/productlisting/productlisting';
 import { Productdetail } from '../pages/productdetail/productdetail';
+import { Myaccount } from '../pages/myaccount/myaccount';
+import { Editprofile } from '../pages/editprofile/editprofile';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { Productdetail } from '../pages/productdetail/productdetail';
     Resetpassword,
     Homescreen,
     Productlisting,
-    Productdetail
+    Productdetail,
+    Myaccount,
+    Editprofile
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,9 @@ import { Productdetail } from '../pages/productdetail/productdetail';
     Resetpassword,
     Homescreen,
     Productlisting,
-    Productdetail
+    Productdetail,
+    Myaccount,
+    Editprofile
   ],
   providers: [
     StatusBar,
