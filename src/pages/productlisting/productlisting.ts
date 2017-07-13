@@ -36,6 +36,10 @@ export class Productlisting {
   }
 
   getParameters() {
+    if ( typeof this.navParams.data == 'object' ) {
+      this.navParams.data = this.navParams.data.category;
+    }
+
     switch (this.navParams.data) {
       case "Tables":
         this.productCategoryId = 1;
@@ -55,13 +59,9 @@ export class Productlisting {
     this.productsEndPoint = `http://staging.php-dev.in:8844/trainingapp/api/products/getList?{&product_category_id=${this.productCategoryId}&limit=10&page=1&}`;
   }
 
-
-
   ionViewDidLoad() {
-
-        console.log("this.navParams.data", this.navParams.data);
     if ( typeof this.navParams.data == 'object' ) {
-        console.log("if object");
+      this.navParams.data = this.navParams.data.category;
     }
 
     this.loader();

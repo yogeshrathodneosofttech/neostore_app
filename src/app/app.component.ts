@@ -83,21 +83,30 @@ export class MyApp {
     this.loading.present();
   }
 
-  openPage() {
+  openCartPage() {
     this.nav.setRoot(Cart);
     this.menuCtrl.toggle();
   }
 
-  openTablesPage(Tables) {
-    this.nav.push(Productlisting, { Tables } );
+  openTablesPage() {
+    this.nav.setRoot(Productlisting, { category: 'Tables' } );
     this.menuCtrl.toggle();
   }
 
-  openSofaPage() {}
+  openSofaPage() {
+    this.nav.setRoot(Productlisting, { category: 'Sofas' } );
+    this.menuCtrl.toggle();
+  }
 
-  openChairPage() {}
+  openChairPage() {
+    this.nav.setRoot(Productlisting, { category: 'Chairs' } );
+    this.menuCtrl.toggle();
+  }
 
-  openCupboardPage() {}
+  openCupboardPage() {
+    this.nav.setRoot(Productlisting, { category: 'Cupboards' } );
+    this.menuCtrl.toggle();
+  }
 
   openAccountPage() {
     this.nav.setRoot(Myaccount);

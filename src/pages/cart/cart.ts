@@ -58,7 +58,7 @@ export class Cart {
   }
 
   removeFromCart(item) {
-
+    this.loader();
     var headers = new Headers();
     headers.append( 'access_token', Globals.globals.userAccessToken );
     var formData = new FormData();
@@ -77,7 +77,6 @@ export class Cart {
   }
 
   updateCart(item) {
-    this.loader();
     var headers = new Headers();
     headers.append( 'access_token', Globals.globals.userAccessToken );
     var formData = new FormData();
@@ -86,12 +85,12 @@ export class Cart {
     this.apiService.postRequestWithHeaders(this.updateCartEndpoint, formData, { headers }).subscribe((response) => {
       if ( response.status === 200 ) {
         this.toastMessage('Cart updated Successfully!!!', 2000);
-        this.loading.dismiss();
-        this.ngOnInit();
+        setTimeout( () => {
+          this.ngOnInit();
+        }, 1000);
       }
     }, error => {
        this.toastMessage('Could not update your Cart. Please try again.', 3000);
-       this.loading.dismiss();
     });
 
   }
