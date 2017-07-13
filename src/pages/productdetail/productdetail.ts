@@ -24,8 +24,8 @@ import { ApiData } from '../services/api';
 export class Productdetail {
   productInfoEndPoint:any = '';
   setRatingEndPoint:any = 'http://staging.php-dev.in:8844/trainingapp/api/products/setRating';
-	productDetails:any;
-	starsCounts:any;
+  productDetails:any;
+  starsCounts:any;
   productCategory:any = 'Tables';
   loading:any;
   ratingPopUp:any = false;
@@ -38,12 +38,12 @@ export class Productdetail {
         public loadingCtrl: LoadingController,
         private apiService: ApiData,
         private toastCtrl: ToastController,
-  			public navCtrl: NavController,
-  			public navParams: NavParams) {}
+        public navCtrl: NavController,
+        public navParams: NavParams) {}
 
   ngOnInit() {
     this.loader();
-  	this.productDetails = this.navParams.data;
+    this.productDetails = this.navParams.data;
     this.starsCounts = this.productDetails.rating;
 
     switch (this.productDetails.product_category_id) {
@@ -102,28 +102,32 @@ export class Productdetail {
   }
 
   buyItem(value) {
-    this.loader();
-    let addToCartEndPoint = `http://staging.php-dev.in:8844/trainingapp/api/addToCart`;
+    if (value < 10) {
+      this.loader();
+      let addToCartEndPoint = `http://staging.php-dev.in:8844/trainingapp/api/addToCart`;
 
-    var formData = new FormData();
-    formData.append("product_id", this.productDetails.id);
-    formData.append("quantity", value );
+      var formData = new FormData();
+      formData.append("product_id", this.productDetails.id);
+      formData.append("quantity", value );
 
-    var headers = new Headers();
-    headers.append( 'access_token', Globals.globals.userAccessToken );
+      var headers = new Headers();
+      headers.append( 'access_token', Globals.globals.userAccessToken );
 
-    this.apiService.postRequestWithHeaders(addToCartEndPoint, formData, { headers }).subscribe((response) => {
-        console.log("response", response);
-      if ( response.status === 200 ) {
-        this.toastMessage('Product added to cart Successfully!!!', 2000);
+      this.apiService.postRequestWithHeaders(addToCartEndPoint, formData, { headers }).subscribe((response) => {
+        if ( response.status === 200 ) {
+          this.toastMessage('Product added to cart Successfully!!!', 2000);
+          this.loading.dismiss();
+          this.buyPopUp = false;
+        }
+      }, error => {
+        this.toastMessage('Product could not be added to cart. Try reducing Quantity. Please try again.', 3000);
         this.loading.dismiss();
         this.buyPopUp = false;
-      }
-    }, error => {
-       this.toastMessage('Product could not be added to cart. Please try again.', 3000);
-       this.loading.dismiss();
-       this.buyPopUp = false;
-    });
+      });
+    } else {
+      this.toastMessage('Quantity is More than Limit. Please reduce it.', 3000);
+      this.loading.dismiss();
+    }
   }
 
   replaceMainImage(event, item) {

@@ -115,11 +115,49 @@ ion-content {
 	}
 }
 
-// .icon-tables:before {
-  // content: "\e902";
-   // fontFamily: "icomoon",
-        // fontSize: "150"
-// }
+
+.ico-moon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ico-moon::before {
+	color: color($colors, secondary);
+	font-size: 97px;
+}
+
+.icon-table::before {
+  content: "\51";
+}
+
+.icon-chair::before {
+  content: "\4f";
+}
+
+.icon-sofa::before {
+  content: "\50";
+}
+
+.icon-cupboard::before {
+  content: "\4e";
+}
+
+.ico-menu:before {
+	content: "\47";
+	font-size: 21px;
+	vertical-align: top;
+	margin-top: 5px;
+}
 
 page-home {
 	.welcome-msg {

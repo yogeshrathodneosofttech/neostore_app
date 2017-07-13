@@ -1,1 +1,57 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+
+  <ion-content>
+  	<div class="intro" *ngIf="usersInformation ">
+  		<div class="profile-image">
+  			<img src="{{ usersInformation.data.user_data.profile_pic }}">
+  		</div>
+  		<h2>{{ usersInformation.data.user_data.first_name }} {{ usersInformation.data.user_data.last_name }}</h2>
+  		<h3>{{ usersInformation.data.user_data.email }}</h3>
+  	</div>
+    <ion-list>
+    	<ul class="side-menu-items">
+    		<li (click)="openCartPage()">
+    			<ion-icon name="menu" class="ico-moon icon-cart"></ion-icon>
+    			<span>My Cart</span>
+                <span *ngIf="usersInformation" class="cart-count">{{ usersInformation.data.total_carts }}</span>
+    		</li>
+    		<li (click)="openTablesPage(Tables)">
+    			<ion-icon name="menu" class="ico-moon icon-table"></ion-icon>
+    			<span>Tables</span>
+    		</li>
+    		<li (click)="openSofaPage()">
+    			<ion-icon name="menu" class="ico-moon icon-sofa"></ion-icon>
+    			<span>Sofas</span>
+    		</li>
+    		<li (click)="openChairPage()">
+    			<ion-icon name="menu" class="ico-moon icon-chair"></ion-icon>
+    			<span>Chairs</span>
+    		</li>
+    		<li (click)="openCupboardPage()">
+    			<ion-icon name="menu" class="ico-moon icon-cupboard"></ion-icon>
+    			<span>Cupboards</span>
+    		</li>
+    		<li (click)="openAccountPage()">
+    			<ion-icon name="menu" class="ico-moon icon-account"></ion-icon>
+    			<span>My Account</span>
+    		</li>
+    		<li (click)="openStorePage()">
+    			<ion-icon name="menu" class="ico-moon icon-store"></ion-icon>
+    			<span>Store Locator</span>
+    		</li>
+    		<li (click)="openOrdersPage()">
+    			<ion-icon name="menu" class="ico-moon icon-orders"></ion-icon>
+    			<span>My Orders</span>
+    		</li>
+    		<li (click)="Logout()">
+    			<ion-icon name="menu" class="ico-moon icon-logout"></ion-icon>
+    			<span>Logout</span>
+    		</li>
+    	</ul>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

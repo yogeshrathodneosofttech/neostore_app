@@ -58,6 +58,12 @@ export class Productlisting {
 
 
   ionViewDidLoad() {
+
+        console.log("this.navParams.data", this.navParams.data);
+    if ( typeof this.navParams.data == 'object' ) {
+        console.log("if object");
+    }
+
     this.loader();
     this.selectedItem = this.navParams.data;
     this.products = [];

@@ -3,8 +3,9 @@
 
 	<ion-navbar hideBackButton>
 
-		<button >
-			<ion-icon name="menu" ></ion-icon>
+
+		<button ion-button menuToggle>
+			<ion-icon name="menu" class="ico-moon ico-menu"></ion-icon>
 		</button>
 
 		<ion-title>NeoSTORE</ion-title>
@@ -39,25 +40,24 @@
 		<div class="block" (click)="clicked('Tables')">
 			<h2>Tables</h2>
 			<div class="icon clearfix">
-				<!-- <span class="icon-tables"></span> -->
-				<img src="assets/images/tables.png">
+				<span class="ico-moon icon-table"></span>
 			</div>
 		</div>
 		<div class="block" (click)="clicked('Sofas')">
 			<div class="icon clearfix">
-				<img src="assets/images/sofa.png">
+				<span class="ico-moon icon-sofa"></span>
 			</div>
 			<h2>Sofas</h2>
 		</div>
 		<div class="block" (click)="clicked('Chairs')">
 			<h2>Chairs</h2>
 			<div class="icon clearfix">
-				<img src="assets/images/chair.png">
+				<span class="ico-moon icon-chair"></span>
 			</div>
 		</div>
 		<div class="block" (click)="clicked('Cupboards')">
 			<div class="icon clearfix">
-				<img src="assets/images/cupboard.png">
+				<span class="ico-moon icon-cupboard"></span>
 			</div>
 			<h2>Cupboards</h2>
 		</div>

@@ -46,7 +46,6 @@ export class Editprofile {
         this.loading.dismiss();
       }
     }, error => {
-        console.log("error", error);
        this.toastMessage('Could not get your Details. Please try again.', 3000);
        this.loading.dismiss();
     });
@@ -68,7 +67,7 @@ export class Editprofile {
   }
 
   updateInfo(form: NgForm) {
-
+    this.loader();
     var headers = new Headers();
     headers.append( 'access_token', Globals.globals.userAccessToken );
     var formData = new FormData();
@@ -84,14 +83,12 @@ export class Editprofile {
     }
 
     this.apiService.postRequestWithHeaders(this.postUserDetailsEndPoint, formData, { headers }).subscribe((response) => {
-        console.log("response", response);
       if ( response.status === 200 ) {
       	this.toastMessage('Your details have updated Successfully!!!', 2000);
         this.loading.dismiss();
         this.ngOnInit();
       }
     }, error => {
-        console.log("error", error);
        this.toastMessage('Could not update your Details. Please try again.', 3000);
        this.loading.dismiss();
     });

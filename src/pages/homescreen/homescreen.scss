@@ -1,4 +1,5 @@
 page-homescreen {
+	.search { margin-top: 0; }
 	.scroll-content {
 		padding: 0 !important;
 		display: block;
@@ -33,6 +34,12 @@ page-homescreen {
 			&:first-child,
 			&:nth-child(2) { margin-top: 0; }
 
+			&:nth-child(2) {
+				h2 {
+					margin-top: 3px;
+				}
+			}
+
 			&:first-child,
 			&:last-child {
 				h2 { text-align: right; }
@@ -40,17 +47,19 @@ page-homescreen {
 
 			&:nth-child(2),
 			&:nth-child(3) {
-				img { float: right; }
+				span { float: right; }
 			}
 
 			&:nth-child(3) {
-				img {
+				span {
 					margin-top: 13px;
 				}
 			}
 
 			&:last-child {
-				img {
+				h2 { margin-top: 10px; }
+
+				span {
 					margin-bottom: 10px;
 				}
 			}
@@ -71,8 +80,12 @@ page-homescreen {
 			}
 
 
+
+
 		}
 	}
+
+
 
 
 }

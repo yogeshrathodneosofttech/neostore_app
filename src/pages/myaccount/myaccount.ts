@@ -7,6 +7,7 @@ import * as _ from 'lodash';
 import * as Globals from '../globals';
 import { ApiData } from '../services/api';
 import { Editprofile } from '../editprofile/editprofile';
+import { Resetpassword } from '../resetpassword/resetpassword';
 
 /**
  * Generated class for the Myaccount page.
@@ -39,9 +40,9 @@ export class Myaccount {
     headers.append( 'access_token', Globals.globals.userAccessToken );
 
     this.apiService.getRequestWithHeaders(this.getUserDetailsEndPoint, { headers }).subscribe((response) => {
+        console.log("response", response);
       if ( response.status === 200 ) {
       	this.usersInformation = response.data.user_data;
-      	console.log("this.usersInformation", this.usersInformation);
         this.loading.dismiss();
       }
     }, error => {
@@ -52,6 +53,10 @@ export class Myaccount {
 
   editProfile() {
   	this.navCtrl.push(Editprofile);
+  }
+
+  resetPassword() {
+    this.navCtrl.push(Resetpassword);
   }
 
   toastMessage(message, duration) {

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { Login } from '../login/login';
-import { Productlisting } from '../productlisting/productlisting';
 import { Myaccount } from '../myaccount/myaccount';
+import { Cart } from '../cart/cart';
 
 import * as Globals from '../globals';
 

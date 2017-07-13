@@ -7,6 +7,10 @@
 <ion-header>
 
   <ion-navbar>
+  	<button ion-button menuToggle>
+			<ion-icon name="menu" class="ico-moon ico-menu"></ion-icon>
+		</button>
+
     <ion-title>My Account</ion-title>
 	  <div class="search">
 	  	<i class="fa fa-search" aria-hidden="true"></i>
@@ -65,7 +69,7 @@
 				</div>
 			</form>
 			<div class="reset-password-button">
-				<span class="reset-button">Reset Password</span>
+				<span class="reset-button" (click)="resetPassword()">Reset Password</span>
 			</div>
 		</div>
 	</div>

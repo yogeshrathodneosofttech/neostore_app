@@ -82,6 +82,21 @@
 }
 
 @font-face {
-	font-family: 'icomoon';
-	src: url('./icomoon/icomoon.ttf');
+    font-family: 'Gotham_Medium';
+    src: url('ufonts.com_gotham-medium-webfont.woff2') format('woff2'),
+         url('ufonts.com_gotham-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src:  url('icomoon/icomoon.eot?ju0gq3');
+  src:  url('icomoon/icomoon.eot?ju0gq3#iefix') format('embedded-opentype'),
+    url('icomoon/icomoon.ttf?ju0gq3') format('truetype'),
+    url('icomoon/icomoon.woff?ju0gq3') format('woff'),
+    url('icomoon/icomoon.svg?ju0gq3#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }

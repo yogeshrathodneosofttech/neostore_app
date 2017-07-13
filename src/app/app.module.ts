@@ -18,6 +18,7 @@ import { Productlisting } from '../pages/productlisting/productlisting';
 import { Productdetail } from '../pages/productdetail/productdetail';
 import { Myaccount } from '../pages/myaccount/myaccount';
 import { Editprofile } from '../pages/editprofile/editprofile';
+import { Cart } from '../pages/cart/cart';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { Editprofile } from '../pages/editprofile/editprofile';
     Productlisting,
     Productdetail,
     Myaccount,
-    Editprofile
+    Editprofile,
+    Cart
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ import { Editprofile } from '../pages/editprofile/editprofile';
     Productlisting,
     Productdetail,
     Myaccount,
-    Editprofile
+    Editprofile,
+    Cart
   ],
   providers: [
     StatusBar,
