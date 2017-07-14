@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, LoadingController, Events } from 'ionic-angular';
 import { Headers } from '@angular/http';
 
 import * as _ from 'lodash';
@@ -35,6 +35,7 @@ export class Productdetail {
   productQuantity:any = 0;
 
   constructor(
+        public events: Events,
         public loadingCtrl: LoadingController,
         private apiService: ApiData,
         private toastCtrl: ToastController,
@@ -118,6 +119,8 @@ export class Productdetail {
           this.toastMessage('Product added to cart Successfully!!!', 2000);
           this.loading.dismiss();
           this.buyPopUp = false;
+          Globals.globals.cartItems = response.total_carts;
+          this.events.publish('updateSidebar');
         }
       }, error => {
         this.toastMessage('Product could not be added to cart. Try reducing Quantity. Please try again.', 3000);

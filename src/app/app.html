@@ -13,7 +13,7 @@
     		<li (click)="openCartPage()">
     			<ion-icon name="menu" class="ico-moon icon-cart"></ion-icon>
     			<span>My Cart</span>
-                <span *ngIf="usersInformation" class="cart-count">{{ usersInformation.data.total_carts }}</span>
+                <span *ngIf="usersInformation" class="cart-count">{{ cartCount }}</span>
     		</li>
     		<li (click)="openTablesPage(Tables)">
     			<ion-icon name="menu" class="ico-moon icon-table"></ion-icon>

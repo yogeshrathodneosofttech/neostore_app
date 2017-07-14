@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, LoadingController, Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { Headers } from '@angular/http';
 
@@ -29,6 +29,7 @@ export class Addresslist {
   shipToAddress: any = 0;
 
   constructor(
+      public events: Events,
       private storage: Storage,
       public loadingCtrl: LoadingController,
       private apiService: ApiData,
@@ -67,6 +68,7 @@ export class Addresslist {
       if ( response.status === 200 ) {
         this.toastMessage('Your order is placed Successfully!!!', 2000);
         this.loading.dismiss();
+        this.events.publish('updateSidebar');
       }
     }, error => {
        this.toastMessage('Could not place your order. Please try again.', 3000);

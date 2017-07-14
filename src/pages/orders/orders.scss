@@ -1,3 +1,49 @@
 page-orders {
+	.scroll-content {
+		background: color($colors, secondary);
+		display: block;
+		padding: 0 !important;
+	}
 
+	ul {
+		background: color($colors, secondary);
+		padding: 0;
+		margin: 0;
+
+		li {
+			padding: 20px 15px;
+			list-style: none;
+			border-bottom: 1px solid #bfbfbf;
+			position: relative;
+
+			h2 {
+				color: #1c1c1c;
+				font-size: 20px;
+				font-family: 'Gotham_Pro_Regular';
+			}
+
+			h3 {
+				color: #4f4f4f;
+				font-size: 15px;
+				font-family: 'Gotham_Pro_Regular';
+				margin-bottom: 0;
+			}
+
+			h4 {
+				color: #333;
+				font-size: 20px;
+				font-family: 'Gotham_Pro_Regular';
+				position: absolute;
+				right: 15px;
+				top: 10px;
+			}
+
+			.icon-price:before {
+				content: "\69";
+				color: #7f7f7f;
+				font-size: 15px;
+			}
+
+		}
+	}
 }

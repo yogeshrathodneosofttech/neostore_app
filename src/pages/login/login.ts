@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController, LoadingController } from 'ionic-angular';
+import { NavController, ToastController, LoadingController, Events } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import { NgForm } from '@angular/forms';
 
 import { Forgetpassword } from '../forgetpassword/forgetpassword';
@@ -25,14 +26,12 @@ export class Login {
   loading:any;
 
   constructor(
+      private storage: Storage,
+      public events: Events,
       public loadingCtrl: LoadingController,
       private apiService: ApiData,
       private toastCtrl: ToastController,
       public navCtrl: NavController) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Login');
   }
 
   loginUser(form: NgForm) {
@@ -46,9 +45,11 @@ export class Login {
       if ( response.status === 200 ) {
         this.toastMessage('You have Logged In Successfully!!!', 2000);
         Globals.globals.loggedInUser = true;
-        this.navCtrl.push(Homescreen);
+        this.navCtrl.setRoot(Homescreen);
         this.loading.dismiss();
         Globals.globals.userAccessToken = response.data.access_token;
+        this.storage.set('userAccessToken', Globals.globals.userAccessToken );
+        this.events.publish('updateSidebar');
       }
     }, error => {
        this.toastMessage('Email or Password is wrong. Please try again.', 3000);

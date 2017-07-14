@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-
-import { Login } from '../login/login';
-import { Myaccount } from '../myaccount/myaccount';
-import { Cart } from '../cart/cart';
+import { NavController, Events } from 'ionic-angular';
 
 import * as Globals from '../globals';
+
+import { Login } from '../login/login';
+import { Homescreen } from '../homescreen/homescreen';
 
 @Component({
   selector: 'page-home',
@@ -13,12 +12,16 @@ import * as Globals from '../globals';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public events: Events, public navCtrl: NavController) {}
 
   ngOnInit() {
-  	setTimeout( () => {
-  		this.navCtrl.push(Myaccount);
-  	}, 1000);
+    console.log("Globals.globals.userAccessToken", Globals.globals.userAccessToken);
+  	if ( Globals.globals.userAccessToken ) {
+  		this.events.publish('updateSidebar');
+  		this.navCtrl.setRoot(Homescreen);
+  	} else {
+  		this.navCtrl.push(Login);
+  	}
   }
 
 }

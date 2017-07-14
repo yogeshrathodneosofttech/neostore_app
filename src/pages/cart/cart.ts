@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, LoadingController, Events } from 'ionic-angular';
 import { Headers } from '@angular/http';
 
 import * as _ from 'lodash';
@@ -26,19 +26,19 @@ export class Cart {
   deleteItemFromCartEndpoint:any = 'http://staging.php-dev.in:8844/trainingapp/api/deleteCart';
   updateCartEndpoint:any = 'http://staging.php-dev.in:8844/trainingapp/api/editCart';
   loading:any;
-  cartTotal:any;
   cartItems:any = [];
   openQuantityDropdown:any = true;
   quantity:any = [1,2,3,4,5,6,7,8,9];
 
   constructor(
+      public events: Events,
       public loadingCtrl: LoadingController,
       private apiService: ApiData,
       private toastCtrl: ToastController,
       public navCtrl: NavController,
       public navParams: NavParams) {}
 
-  ngOnInit() {
+  ionViewCanEnter() {
     this.loader();
     this.cartItems = [];
 
@@ -46,12 +46,12 @@ export class Cart {
     headers.append( 'access_token', Globals.globals.userAccessToken );
 
     this.apiService.getRequestWithHeaders(this.getUsersCartEndPoint, { headers }).subscribe((response) => {
-      this.cartTotal = response.total;
       if ( response.status === 200 ) {
         _.forEach(response.data, (cartItem) => {
           this.cartItems.push(cartItem);
         });
         this.loading.dismiss();
+        this.events.publish('updateSidebar');
       }
     }, error => {
        this.toastMessage('Could not get your Cart Details. Please try again.', 3000);
@@ -70,7 +70,8 @@ export class Cart {
       if ( response.status === 200 ) {
         this.toastMessage('Item Deleted Successfully!!!', 2000);
         this.loading.dismiss();
-        this.ngOnInit();
+        this.ionViewCanEnter();
+        this.events.publish('updateSidebar');
       }
     }, error => {
        this.toastMessage('Could not delete from Cart. Please try again.', 3000);
@@ -88,7 +89,7 @@ export class Cart {
       if ( response.status === 200 ) {
         this.toastMessage('Cart updated Successfully!!!', 2000);
         setTimeout( () => {
-          this.ngOnInit();
+          this.ionViewCanEnter();
         }, 1000);
       }
     }, error => {
