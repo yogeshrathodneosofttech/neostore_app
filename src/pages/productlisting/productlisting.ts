@@ -70,6 +70,7 @@ export class Productlisting {
     this.starsCounts = [];
 
     this.apiService.getData(this.productsEndPoint).subscribe((response) => {
+        console.log("response", response);
       _.forEach(response.data, (data) => {
         this.products.push(data);
         this.starsCounts.push(data.rating);

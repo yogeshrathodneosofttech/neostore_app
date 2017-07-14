@@ -21,18 +21,9 @@
 
 <ion-content>
 
-	<ion-slides pager>
-		<ion-slide>
-			<img src="assets/images/slide1.jpeg">
-		</ion-slide>
-		<ion-slide>
-			<img src="assets/images/slide2.jpeg">
-		</ion-slide>
-		<ion-slide>
-			<img src="assets/images/slide3.jpeg">
-		</ion-slide>
-		<ion-slide>
-			<img src="assets/images/slide4.jpeg">
+	<ion-slides pager *ngIf="sliderImages" >
+		<ion-slide *ngFor="let item of sliderImages">
+			<img src="{{ item }}">
 		</ion-slide>
 	</ion-slides>
 

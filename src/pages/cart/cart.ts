@@ -26,6 +26,7 @@ export class Cart {
   deleteItemFromCartEndpoint:any = 'http://staging.php-dev.in:8844/trainingapp/api/deleteCart';
   updateCartEndpoint:any = 'http://staging.php-dev.in:8844/trainingapp/api/editCart';
   loading:any;
+  cartTotal:any;
   cartItems:any = [];
   openQuantityDropdown:any = true;
   quantity:any = [1,2,3,4,5,6,7,8,9];
@@ -47,6 +48,7 @@ export class Cart {
 
     this.apiService.getRequestWithHeaders(this.getUsersCartEndPoint, { headers }).subscribe((response) => {
       if ( response.status === 200 ) {
+        this.cartTotal = response.total;
         _.forEach(response.data, (cartItem) => {
           this.cartItems.push(cartItem);
         });
