@@ -44,7 +44,7 @@
 			<img src="{{ activeImage }}">
 		</div>
 		<div class="image-slider">
-			<div class="image" *ngFor="let item of productImages; let i = index;" [class.active]="i == 0" (click)="replaceMainImage($event, item )">
+			<div class="image" *ngFor="let item of productImages; let i = index;" [class.active]="activeImageClass == i" (click)="replaceMainImage($event, item, i )">
 				<img src="{{ item }}">
 			</div>
 		</div>

@@ -33,6 +33,7 @@ export class Productdetail {
   productImages:any = [];
   activeImage:any = '';
   productQuantity:any = 0;
+  activeImageClass:any = 0;
 
   constructor(
         public events: Events,
@@ -133,8 +134,9 @@ export class Productdetail {
     }
   }
 
-  replaceMainImage(event, item) {
+  replaceMainImage(event, item, i) {
     this.activeImage = item;
+    this.activeImageClass = i;
   }
 
   toastMessage(message, duration) {
