@@ -19,6 +19,10 @@ import { Productdetail } from '../pages/productdetail/productdetail';
 import { Myaccount } from '../pages/myaccount/myaccount';
 import { Editprofile } from '../pages/editprofile/editprofile';
 import { Cart } from '../pages/cart/cart';
+import { Storelocator } from '../pages/storelocator/storelocator';
+import { Orders } from '../pages/orders/orders';
+import { Address } from '../pages/address/address';
+import { Addresslist } from '../pages/addresslist/addresslist';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { Cart } from '../pages/cart/cart';
     Productdetail,
     Myaccount,
     Editprofile,
-    Cart
+    Cart,
+    Storelocator,
+    Orders,
+    Address,
+    Addresslist
   ],
   imports: [
     BrowserModule,
@@ -56,7 +64,11 @@ import { Cart } from '../pages/cart/cart';
     Productdetail,
     Myaccount,
     Editprofile,
-    Cart
+    Cart,
+    Storelocator,
+    Orders,
+    Address,
+    Addresslist
   ],
   providers: [
     StatusBar,

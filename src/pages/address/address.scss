@@ -1,0 +1,84 @@
+page-address {
+	.scroll-content {
+		background: #ededed;
+		display: block;
+		padding: 0 !important;
+	}
+
+	.addresses {
+		margin-top: 25px;
+		padding: 0 15px;
+
+		form {
+			> div {
+				margin-bottom: 25px;
+			}
+		}
+
+		h3 {
+			font-family: 'Gotham_Pro_Regular';
+			font-weight: 700;
+			color: #333;
+			text-transform: uppercase;
+			font-size: 17px;
+		}
+
+		textarea {
+			padding: 10px;
+			height: 80px;
+		}
+
+		input[type="text"],
+		[type="number"] {
+			height: 40px;
+			padding: 10px;
+		}
+
+		textarea,
+		input {
+			width: 100%;
+			font-family: 'Gotham_Pro_Regular';
+			font-size: 16px;
+			color: #333;
+		}
+
+		.width50 {
+			margin-bottom: 20px;
+
+			> div {
+				float: left;
+				width: 48%;
+				margin-bottom: 25px;
+
+				&:nth-child(odd) {
+					margin-right: 4%;
+				}
+			}
+		}
+
+		.save-address {
+			input {
+				border: 0;
+				outline: 0;
+				width: 100%;
+				margin: auto;
+				background: #db1514;
+				color: #fff;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				border-radius: 5px;
+				font-size: 22px;
+				font-family: 'Gotham_Pro_Regular';
+				font-weight: 700;
+				text-transform: uppercase;
+
+				&[disabled] {
+					opacity: 0.7;
+				}
+			}
+		}
+
+
+	}
+}

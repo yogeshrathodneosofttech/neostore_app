@@ -21,7 +21,7 @@
 
 <ion-content padding>
 
-	<div class="cart-items">
+	<div class="cart-items" *ngIf="cartItems.length != 0">
 		<ion-list>
 			<ion-item-sliding *ngFor="let item of cartItems">
 				<ion-item>
@@ -61,12 +61,15 @@
 				</ion-item>
 		</ion-list>
 
-		<div class="order-btn">
+		<div class="order-btn" (click)="placeOrder()">
 			<span>Order Now</span>
 		</div>
-
 	</div>
 
-
+	<div class="no-items-in-cart" *ngIf="cartItems.length == 0">
+		<h2>
+			Your cart is empty!!
+		</h2>
+	</div>
 
 </ion-content>

@@ -12,6 +12,9 @@ import { Homescreen } from '../pages/homescreen/homescreen';
 import { Myaccount } from '../pages/myaccount/myaccount';
 import { Cart } from '../pages/cart/cart';
 import { Productlisting } from '../pages/productlisting/productlisting';
+import { Storelocator } from '../pages/storelocator/storelocator';
+import { Orders } from '../pages/orders/orders';
+import { Addresslist } from '../pages/addresslist/addresslist';
 
 
 @Component({
@@ -24,7 +27,7 @@ export class MyApp {
   loading:any;
   usersInformation:any;
 
-  rootPage: any = Homescreen;
+  rootPage: any = Addresslist;
 
   pages: Array<{title: string, component: any}>;
 
@@ -113,9 +116,15 @@ export class MyApp {
     this.menuCtrl.toggle();
   }
 
-  openStorePage() {}
+  openStorePage() {
+    this.nav.setRoot(Storelocator);
+    this.menuCtrl.toggle();
+  }
 
-  openOrdersPage() {}
+  openOrdersPage() {
+    this.nav.setRoot(Orders);
+    this.menuCtrl.toggle();
+  }
 
   Logout() {}
 

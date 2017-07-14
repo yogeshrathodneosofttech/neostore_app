@@ -4,6 +4,17 @@ page-cart {
 		display: block;
 		padding: 0 !important;
 
+			.no-items-in-cart {
+				margin-top: 40px;
+
+				h2 {
+					font-size: 20px;
+					line-height: 24px;
+					font-family: 'Gotham_Pro_Bold';
+					text-align: center;
+				}
+			}
+
 			ion-item {
 				padding: 15px;
 				border-bottom: 1px solid #bfbfbf;

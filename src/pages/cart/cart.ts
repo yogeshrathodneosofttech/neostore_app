@@ -7,6 +7,8 @@ import * as _ from 'lodash';
 import * as Globals from '../globals';
 import { ApiData } from '../services/api';
 
+import { Addresslist } from '../addresslist/addresslist';
+
 /**
  * Generated class for the Cart page.
  *
@@ -93,6 +95,10 @@ export class Cart {
        this.toastMessage('Could not update your Cart. Please try again.', 3000);
     });
 
+  }
+
+  placeOrder() {
+    this.navCtrl.push(Addresslist);
   }
 
   toastMessage(message, duration) {
