@@ -16,7 +16,7 @@
 
 <ion-content padding>
 
-	<div class="addresses">
+	<div class="addresses" *ngIf="AddressesByUser">
 		<p>Shipping Address</p>
 
 		<div class="block clearfix" *ngFor="let item of AddressesByUser; let i = index;">
@@ -26,12 +26,12 @@
 				</span>
 			</div>
 			<div class="address-box">
-				<div class="deleteAddress">
+				<div class="deleteAddress" (click)="deleteAddress(item)">
 					X
 				</div>
-				<h2>{{item.name}}</h2>
+				<h2>{{ item.city }}</h2>
 				<p>
-					{{item.address}}
+					{{ item.address }}, {{ item.landmark }}, {{ item.city }}, {{ item.state }}, {{ item.country }},  {{ item.zip }},
 				</p>
 			</div>
 		</div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
+import { Storage } from '@ionic/storage';
 
 import * as _ from 'lodash';
 
@@ -20,9 +21,10 @@ import * as Globals from '../globals';
 export class Address {
 
   constructor(
-  	private toastCtrl: ToastController,
-  	public navCtrl: NavController,
-  	public navParams: NavParams) {}
+		  	private storage: Storage,
+		  	private toastCtrl: ToastController,
+		  	public navCtrl: NavController,
+		  	public navParams: NavParams) {}
 
   addAddress(form: NgForm) {
     let address = {
@@ -34,6 +36,7 @@ export class Address {
     	country: form.value.country
     };
     Globals.userAddresses.push(address);
+   	this.storage.set('addressList', Globals.userAddresses);
     this.navCtrl.pop();
     this.toastMessage('Address Added Successfully!!!', 3000);
   }

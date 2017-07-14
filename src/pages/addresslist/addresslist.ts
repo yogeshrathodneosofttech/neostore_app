@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import { Headers } from '@angular/http';
+
+import * as _ from 'lodash';
 
 import * as Globals from '../globals';
 import { ApiData } from '../services/api';
@@ -22,34 +25,41 @@ export class Addresslist {
   placeOrderEndPoint:any = 'http://staging.php-dev.in:8844/trainingapp/api/order';
   loading:any;
   shippingAddressSelected:any = 0;
-  AddressesByUser:any = [
-    {
-      name: 'John Doe',
-      address: 'NeoSoft Dadar(W)'
-    }, {
-      name: 'John Doe',
-      address: 'NeoSoft Rabale(W)'
-    }, {
-      name: 'John Doe',
-      address: 'NeoSoft Pune(E)'
-    }
-  ];
-  shipToAddress: any = this.AddressesByUser[0].address;
+  AddressesByUser:any = [];
+  shipToAddress: any = 0;
 
   constructor(
+      private storage: Storage,
       public loadingCtrl: LoadingController,
       private apiService: ApiData,
       private toastCtrl: ToastController,
       public navCtrl: NavController,
       public navParams: NavParams) {}
 
+
+  ngOnInit() {
+    this.storage.get('addressList').then((addressList) => {
+      if ( addressList != undefined ) {
+        _.forEach(addressList, (address) => {
+          Globals.userAddresses.push(address);
+        });
+        this.AddressesByUser = Globals.userAddresses;
+      }
+    });
+    this.shipToAddress = this.AddressesByUser[0];
+  }
+
   addAddress() {
   	this.navCtrl.push(Address);
   }
 
+  ionViewCanEnter() {
+    this.AddressesByUser = Globals.userAddresses;
+  }
+
   placeOrder() {
     this.loader();
-     var headers = new Headers();
+    var headers = new Headers();
     headers.append( 'access_token', Globals.globals.userAccessToken );
     var formData = new FormData();
     formData.append("address", this.shipToAddress );
@@ -66,7 +76,13 @@ export class Addresslist {
 
   addressSelected(value) {
     this.shippingAddressSelected = value;
-    this.shipToAddress = this.AddressesByUser[value].address;
+    this.shipToAddress = this.AddressesByUser[value];
+  }
+
+  deleteAddress(item) {
+    _.remove( this.AddressesByUser, item );
+    this.storage.set('addressList', Globals.userAddresses);
+    this.shippingAddressSelected = 0;
   }
 
   toastMessage(message, duration) {

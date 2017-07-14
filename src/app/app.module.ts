@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RatingModule } from "ngx-rating";
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -49,7 +50,8 @@ import { Addresslist } from '../pages/addresslist/addresslist';
     ReactiveFormsModule,
     FormsModule,
     HttpModule,
-    RatingModule
+    RatingModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
