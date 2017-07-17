@@ -47,3 +47,13 @@ page-myaccount {
 	}
 }
 
+@media screen and (max-width: 767px) and (orientation: landscape) {
+	.user-info .image {
+		text-align: center;
+	}
+
+	.user-info {
+		margin-bottom: 45px;
+	}
+}
+

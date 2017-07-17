@@ -10,8 +10,6 @@ page-register {
 		}
 	}
 
-
-
 	.gender {
 		margin-bottom: 20px;
 		font-size: 18px;
@@ -70,5 +68,11 @@ page-register {
 				background: #fff;
 			}
 		}
+	}
+}
+
+@media screen and (max-width: 320px) {
+	page-register .logo {
+		margin-top: 30px;
 	}
 }

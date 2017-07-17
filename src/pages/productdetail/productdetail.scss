@@ -293,11 +293,14 @@ page-productdetail {
 				font-weight: 700;
 				text-transform: uppercase;
 			}
-
-
 		}
 	}
 
+}
 
-
+@media screen and (max-width: 767px) and (orientation: landscape) {
+	page-productdetail .buy-popup,
+	page-productdetail .rating-popup {
+		overflow: scroll;
+	}
 }
