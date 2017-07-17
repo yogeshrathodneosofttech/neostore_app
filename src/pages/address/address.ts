@@ -3,8 +3,6 @@ import { NavController, NavParams, ToastController, } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 
-import * as _ from 'lodash';
-
 import * as Globals from '../globals';
 
 /**

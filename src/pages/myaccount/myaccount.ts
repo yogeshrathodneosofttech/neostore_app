@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { Headers } from '@angular/http';
 
-import * as _ from 'lodash';
-
 import * as Globals from '../globals';
 import { ApiData } from '../services/api';
 import { Editprofile } from '../editprofile/editprofile';

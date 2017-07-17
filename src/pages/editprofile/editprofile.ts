@@ -3,8 +3,6 @@ import { NavController, NavParams, ToastController, LoadingController } from 'io
 import { Headers } from '@angular/http';
 import { NgForm } from '@angular/forms';
 
-import * as _ from 'lodash';
-
 import * as Globals from '../globals';
 import { ApiData } from '../services/api';
 

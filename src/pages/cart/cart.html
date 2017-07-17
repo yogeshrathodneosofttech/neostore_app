@@ -31,7 +31,7 @@
 					<div class="product-info">
 						<h2>{{ item.product.name }}</h2>
 						<h3>({{ item.product.product_category }})</h3>
-						<div class="quantity">
+						<div class="quantity clearfix">
 							<div class="select">
 								<select  [(ngModel)]="item.quantity" (change)="updateCart(item)">
 									<option *ngFor="let quantityItem of quantity">{{ quantityItem }}</option>

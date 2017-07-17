@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, ToastController, LoadingController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 
-import { Homescreen } from '../homescreen/homescreen';
-
 import { ApiData } from '../services/api';
 
 /**

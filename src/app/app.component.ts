@@ -10,7 +10,6 @@ import { ApiData } from '../pages/services/api';
 
 import { Login } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
-import { Homescreen } from '../pages/homescreen/homescreen';
 import { Myaccount } from '../pages/myaccount/myaccount';
 import { Cart } from '../pages/cart/cart';
 import { Productlisting } from '../pages/productlisting/productlisting';

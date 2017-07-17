@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { NavController, NavParams, ToastController, LoadingController, MenuController } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { Headers } from '@angular/http';
 
 import * as _ from 'lodash';

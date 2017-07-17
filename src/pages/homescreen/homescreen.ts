@@ -9,8 +9,6 @@ import { ApiData } from '../services/api';
 
 import { Productlisting } from '../productlisting/productlisting';
 
-import { Myaccount } from '../myaccount/myaccount';
-
 /**
  * Generated class for the Homescreen page.
  *
