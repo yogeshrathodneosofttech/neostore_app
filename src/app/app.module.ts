@@ -7,6 +7,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RatingModule } from "ngx-rating";
 import { IonicStorageModule } from '@ionic/storage';
+import { Deeplinks } from '@ionic-native/deeplinks';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -75,6 +76,7 @@ import { Addresslist } from '../pages/addresslist/addresslist';
   providers: [
     StatusBar,
     SplashScreen,
+    Deeplinks,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

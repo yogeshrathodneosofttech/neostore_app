@@ -15,7 +15,6 @@ export class HomePage {
   constructor(public events: Events, public navCtrl: NavController) {}
 
   ngOnInit() {
-    console.log("Globals.globals.userAccessToken", Globals.globals.userAccessToken);
   	if ( Globals.globals.userAccessToken ) {
   		this.events.publish('updateSidebar');
   		this.navCtrl.setRoot(Homescreen);

@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
+import { Deeplinks } from '@ionic-native/deeplinks';
 
 import * as Globals from '../pages/globals';
 import { ApiData } from '../pages/services/api';
@@ -33,6 +34,7 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
 
   constructor(
+      private deeplinks: Deeplinks,
       private storage: Storage,
       public events: Events,
       public menuCtrl: MenuController,
@@ -50,6 +52,17 @@ export class MyApp {
     events.subscribe('updateSidebar', () => {
       this.ngOnOnit();
     });
+
+    // Deep Linking
+    deeplinks.routeWithNavController(this.nav, {
+        '/account': Myaccount,
+        '/store': Storelocator,
+        '/products/:productid': Productlisting
+      }).subscribe((match) => {
+        console.log('Successfully matched route', match);
+      }, (nomatch) => {
+        console.error('Got a deeplink that didn\'t match', nomatch);
+      });
 
   }
 
