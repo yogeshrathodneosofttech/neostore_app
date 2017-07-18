@@ -22,7 +22,7 @@
 <ion-content padding>
   <div *ngIf="userOrders">
     <ul>
-      <li *ngFor="let item of userOrders">
+      <li *ngFor="let item of userOrders" (click)="orderDetail(item)">
         <h2>Order ID: {{ item.id }}</h2>
         <h3>Ordered Date: {{ item.created }}</h3>
         <h4 class="price"><span class="ico-moon icon-price"></span>{{ (item.cost).toLocaleString() }}</h4>

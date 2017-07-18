@@ -7,24 +7,23 @@ import * as _ from 'lodash';
 import * as Globals from '../globals';
 import { ApiData } from '../services/api';
 
-import { Orderdetail } from '../orderdetail/orderdetail';
-
 /**
- * Generated class for the Orders page.
+ * Generated class for the Orderdetail page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 
 @Component({
-  selector: 'page-orders',
-  templateUrl: 'orders.html',
+  selector: 'page-orderdetail',
+  templateUrl: 'orderdetail.html',
   providers: [ ApiData ]
 })
-export class Orders {
-	getOrdersEndPoint:any = 'http://staging.php-dev.in:8844/trainingapp/api/orderList';
+export class Orderdetail {
+	getOrderDetailEndPoint:any = '';
   loading:any;
-  userOrders: any = [];
+  orderDetails:any;
+  orders:any = [];
 
   constructor(
       public loadingCtrl: LoadingController,
@@ -33,27 +32,30 @@ export class Orders {
       public navCtrl: NavController,
       public navParams: NavParams) {}
 
-  ionViewCanEnter() {
+  ionViewDidLoad() {
+  	let orderId = this.navParams.data.id;
+  	this.orders = [];
+
+  	this.getOrderDetailEndPoint = `http://staging.php-dev.in:8844/trainingapp/api/orderDetail?order_id=${ orderId }`;
     this.loader();
 
     var headers = new Headers();
     headers.append( 'access_token', Globals.globals.userAccessToken );
 
-    this.apiService.getRequestWithHeaders(this.getOrdersEndPoint, { headers }).subscribe((response) => {
+    this.apiService.getRequestWithHeaders(this.getOrderDetailEndPoint, { headers }).subscribe((response) => {
+        console.log("response", response);
       if ( response.status === 200 ) {
-      	_.forEach(response.data, (order) => {
-      		this.userOrders.push(order);
+      	this.orderDetails = response.data;
+      	_.forEach(response.data.order_details, (order) => {
+      		this.orders.push(order);
       	});
+    		console.log("this.orders", this.orders);
         this.loading.dismiss();
       }
     }, error => {
        this.toastMessage('Could not get your Cart Details. Please try again.', 3000);
        this.loading.dismiss();
     });
-  }
-
-  orderDetail(item) {
-    this.navCtrl.push(Orderdetail, item);
   }
 
   toastMessage(message, duration) {

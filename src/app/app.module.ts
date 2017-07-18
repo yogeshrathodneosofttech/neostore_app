@@ -25,6 +25,7 @@ import { Storelocator } from '../pages/storelocator/storelocator';
 import { Orders } from '../pages/orders/orders';
 import { Address } from '../pages/address/address';
 import { Addresslist } from '../pages/addresslist/addresslist';
+import { Orderdetail } from '../pages/orderdetail/orderdetail';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { Addresslist } from '../pages/addresslist/addresslist';
     Storelocator,
     Orders,
     Address,
-    Addresslist
+    Addresslist,
+    Orderdetail
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,8 @@ import { Addresslist } from '../pages/addresslist/addresslist';
     Storelocator,
     Orders,
     Address,
-    Addresslist
+    Addresslist,
+    Orderdetail
   ],
   providers: [
     StatusBar,
