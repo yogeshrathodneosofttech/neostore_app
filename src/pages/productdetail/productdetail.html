@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{ this.productDetails.name }}</ion-title>
+    <ion-title *ngIf="productDetails">{{ this.productDetails.name }}</ion-title>
     <div class="search">
 			<i class="fa fa-search" aria-hidden="true"></i>
 		</div>
@@ -16,17 +16,17 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding *ngIf="productDetails">
 
 	<div class="product-intro clearfix">
 		<h2>
-			{{ this.productDetails.name }}
+			{{ productDetails.name }}
 		</h2>
 		<h3>
 			Category - {{ productCategory }}
 		</h3>
 		<h4>
-			{{ this.productDetails.producer }}
+			{{ productDetails.producer }}
 			<rating
 				[(ngModel)]="starsCounts"
 				[float]="true"
@@ -38,7 +38,7 @@
 	</div>
 
 	<div class="product-detail clearfix">
-		<p class="price">Rs. {{ productDetails.cost.toLocaleString() }}</p>
+		<p class="price" *ngIf="productDetails.cost">Rs. {{ productDetails.cost.toLocaleString() }}</p>
 		<span class="share-icon"><i class="fa fa-share-alt" aria-hidden="true"></i></span>
 		<div class="product-img">
 			<img src="{{ activeImage }}">

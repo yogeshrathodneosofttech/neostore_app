@@ -36,6 +36,7 @@ export class Productlisting {
   }
 
   getParameters() {
+    console.log("this.navParams", this.navParams);
     if ( typeof this.navParams.data == 'object' ) {
       this.navParams.data = this.navParams.data.category;
     }
@@ -60,6 +61,7 @@ export class Productlisting {
   }
 
   ionViewDidLoad() {
+    console.log("ionViewDidLoad this.navParams", this.navParams);
     if ( typeof this.navParams.data == 'object' ) {
       this.navParams.data = this.navParams.data.category;
     }

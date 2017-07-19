@@ -5,6 +5,8 @@ page-addresslist {
 		padding: 0 !important;
 	}
 
+	.search { margin-top: 0; }
+
 	.icon-plus {
 		float: right;
 		margin-right: 5px;
@@ -103,6 +105,7 @@ page-addresslist {
 
 		p {
 			font-size: 18px;
+			line-height: 22px;
 			margin: 0;
 			color: #333;
 			font-family: 'Gotham_Pro_Regular';

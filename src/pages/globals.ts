@@ -1,6 +1,6 @@
 export var globals = {
 	loggedInUser: false,
-	userAccessToken: '',
+	userAccessToken: '596322d1f16d8',
 	cartItems: 0
 };
 

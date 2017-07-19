@@ -10,10 +10,13 @@ import * as Globals from '../pages/globals';
 import { ApiData } from '../pages/services/api';
 
 import { Login } from '../pages/login/login';
+import { Register } from '../pages/register/register';
 import { HomePage } from '../pages/home/home';
+import { Homescreen } from '../pages/homescreen/homescreen';
 import { Myaccount } from '../pages/myaccount/myaccount';
 import { Cart } from '../pages/cart/cart';
 import { Productlisting } from '../pages/productlisting/productlisting';
+import { Productdetail } from '../pages/productdetail/productdetail';
 import { Storelocator } from '../pages/storelocator/storelocator';
 import { Orders } from '../pages/orders/orders';
 
@@ -53,16 +56,7 @@ export class MyApp {
       this.ngOnOnit();
     });
 
-    // Deep Linking
-    deeplinks.routeWithNavController(this.nav, {
-        '/account': Myaccount,
-        '/store': Storelocator,
-        '/products/:productid': Productlisting
-      }).subscribe((match) => {
-        console.log('Successfully matched route', match);
-      }, (nomatch) => {
-        console.error('Got a deeplink that didn\'t match', nomatch);
-      });
+
 
   }
 
@@ -72,6 +66,19 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      // Deep Linking
+      this.deeplinks.routeWithNavController(this.nav, {
+        '/store': Storelocator,
+        '/register': Register,
+        '/productcat/:category': Productlisting,
+        '/products/:productid': Productdetail
+      }).subscribe((match) => {
+        console.log('Successfully matched route', match);
+      }, (nomatch) => {
+        console.error('Got a deeplink that didn\'t match', nomatch);
+      });
+
     });
   }
 

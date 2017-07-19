@@ -191,7 +191,7 @@ page-productdetail {
 		background: rgba(0,0,0,0.3);
 
 		.content {
-			margin: 70px 15px;
+			margin: 55px 15px;
 			background: color($colors, secondary);
 			border-radius: 8px;
 			padding: 20px;
@@ -246,7 +246,7 @@ page-productdetail {
 		background: rgba(0,0,0,0.3);
 
 		.content {
-			margin: 70px 15px;
+			margin: 55px 15px;
 			background: color($colors, secondary);
 			border-radius: 8px;
 			padding: 20px;
@@ -256,7 +256,12 @@ page-productdetail {
 				line-height: 28px;
 				font-family: 'Gotham_Pro_Regular';
 				text-align: center;
-				margin-bottom: 40px;
+				margin-bottom: 20px;
+			}
+
+			.product-img {
+				padding: 0 25px;
+				margin-bottom: 10px;
 			}
 
 			.quantity {
@@ -285,7 +290,7 @@ page-productdetail {
 				color: color($colors, secondary);
 				width: 100%;
 				height: 45px;
-				margin-top: 20px;
+				margin-top: 15px;
 				border-radius: 7px;
 				font-size: 20px;
 				line-height: 20px;

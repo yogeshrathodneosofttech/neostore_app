@@ -48,6 +48,10 @@ export class Productdetail {
     this.productDetails = this.navParams.data;
     this.starsCounts = this.productDetails.rating;
 
+    if ( this.navParams.data.productid ) {
+      this.productDetails.id = this.navParams.data.productid;
+    }
+
     switch (this.productDetails.product_category_id) {
       case 1:
         this.productCategory = 'Tables';
